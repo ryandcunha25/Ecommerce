@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build-css": "npx tailwindcss -i ./src/css/style.css -o ./pages/ecommerce.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
+  }
+}
