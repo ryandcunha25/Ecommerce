@@ -68,7 +68,7 @@
   </header>
 
   <!-- NAVIGATION BAR -->
-   <nav class="bg-gray-800">
+  <nav class="bg-gray-800">
     <div class="container flex">
       <div class="px-8 py-4 bg-primary flex items-center cursor-pointer">
         <span class="text-white">
@@ -102,7 +102,7 @@
       </div>
 
       <!-- LINKS FOR NAVBAR -->
-       <div class="flex items-center justify-between flex-grow pl-12">
+      <div class="flex items-center justify-between flex-grow pl-12">
         <div class="flex items-center space-x-6 capitalize">
           <a href="" class="text-gray-200 hover:text-white transition">Home</a>
           <a href="" class="text-gray-200 hover:text-white transition">Shop</a>
@@ -110,49 +110,149 @@
           <a href="" class="text-gray-200 hover:text-white transition">Contact us</a>
         </div>
         <a href="" class="text-gray-200 hover:text-white transition">Login/Register</a>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <div class="bg-cover bg-no-repeat bg-center text-center py-72 px-10 h-full bg-opacity-95"
+    style="background-image: url('jordans.jpg'); mix-blend-mode: darken;">
+    <!-- <h1 class="text-5xl text-slate-100 font-medium mb-4 capitalize self-center">Trade-in-offer</h1>
+        <h2 class="text-3xl text-gray-100">Super value deals on all products</h2>
+        <h1 class= "text-2xl text-gray-100 ">Save more upto 70% off</h1> -->
+
+  </div>
+
+  <div class="container py-16">
+    <div class="w-10/12 grid grid-cols-3 gap-6 mx-auto justify-center">
+      <!-- feature 1 -->
+      <div class="border border-primary rounded-sm px-3 py-3 flex justify-center items-center gap-5">
+        <img src="" alt="" class="w-12 h-12 object-contain">
+        <div>
+          <h4 class="font-medium capitalize text-lg">Free Shopping</h4>
+          <p class="text-gray-500 text-sm">order over Rs.200</p>
+        </div>
+      </div>
+      <!-- feature 2 -->
+      <div class="border border-primary rounded-sm px-3 py-3 flex justify-center items-center gap-5">
+        <img src="" alt="" class="w-12 h-12 object-contain">
+        <div>
+          <h4 class="font-medium capitalize text-lg">Money Returns</h4>
+          <p class="text-gray-500 text-sm">Under 30 days</p>
+        </div>
+      </div>
+      <!-- feature 3 -->
+      <div class="border border-primary rounded-sm px-3 py-3 flex justify-center items-center gap-5">
+        <img src="" alt="" class="w-12 h-12 object-contain">
+        <div>
+          <h4 class="font-medium capitalize text-lg">Customer support</h4>
+          <p class="text-gray-500 text-sm">All 7 days of the week</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <div class="container py-16">
+    <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">SHOP BY CATEGORY</h2>
+    <h2 class="text-3xl font-medium text-gray-800 uppercase mb-6"></h2>
+    <div class="grid grid-cols-3 gap-3">
+
+      <!-- Category-1 -->
+      <div class="relative rounded-sm overflow-hidden group">
+        <img src="jordans.jpg" alt="category" srcset="" class="w-full">
+        <a href="#"
+          class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60">Category-1</a>
+      </div>
+
+      <!-- Category-2 -->
+      <div class="relative rounded-sm overflow-hidden group">
+        <img src="jordans.jpg" alt="category" srcset="" class="w-full">
+        <a href="#"
+          class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60">Category-1</a>
+      </div>
+
+      <!-- Category-3 -->
+      <div class="relative rounded-sm overflow-hidden group">
+        <img src="jordans.jpg" alt="category" srcset="" class="w-full">
+        <a href="#"
+          class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60">Category-1</a>
+      </div>
+
+      <!-- Category-4 -->
+      <div class="relative rounded-sm overflow-hidden group">
+        <img src="jordans.jpg" alt="category" srcset="" class="w-full">
+        <a href="#"
+          class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60">Category-1</a>
+      </div>
+
+      <!-- Category-5 -->
+      <div class="relative rounded-sm overflow-hidden group">
+        <img src="jordans.jpg" alt="category" srcset="" class="w-full">
+        <a href="#"
+          class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60">Category-1</a>
+      </div>
+
+      <!-- Category-6 -->
+      <div class="relative rounded-sm overflow-hidden group">
+        <img src="jordans.jpg" alt="category" srcset="" class="w-full">
+        <a href="#"
+          class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60">Category-1</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT WRAPPER -->
+  <div class="container pb-16">
+    <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">TOP NEW ARRIVAL</h2>
+
+
+    <div class="grid grid-cols-4 gap-6">
+      <!-- product-1 -->
+      <div class="bg-white shadow rounded overflow-hidden">
+        <!-- image -->
+        <div class="relative group">
+          <img src="jordan2.jpeg" alt="" class="w-full">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+            <a href=""
+              class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
+              <i class="fa fa-search"></i>
+            </a>
+            <a href=""
+              class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
+              <i class="fa fa-heart"></i>
+            </a>
+          </div>
+        </div>
         
-       </div>
-    </div>
-   </nav>
 
-   <!-- BANNER -->
-    <div class="bg-cover bg-no-repeat bg-center py-36 px-10 mix-blend-darken" style="background-image: url('jordans.jpg'); ">
-      <h1 class="text-5xl text-gray-300 font-medium mb-4 capitalize">Trade-in-offer</h4>
-        <h2 class="text-3xl text-gray-300">Super value deals on all products</h2>
-        <h1 class= "text-2xl text-gray-300 ">Save more upto 70% off</p>
-
-    </div>
-  
-    <div class="container py-16">
-      <div class="w-10/12 grid grid-cols-3 gap-6 mx-auto justify-center">
-        <!-- feature 1 -->
-        <div class="border border-primary rounded-sm px-3 py-3 flex justify-center items-center gap-5">
-          <img src="" alt="" class="w-12 h-12 object-contain">
-          <div>
-            <h4 class="font-medium capitalize text-lg">Free Shopping</h4>
-            <p class="text-gray-500 text-sm">order over Rs.200</p>
+        <!-- content -->
+        <div class="pt-4 pb-3 px-4">
+          <a href="#">
+            <h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
+              content
+            </h4>
+          </a>
+          <div class="flex items-baseline mb-1 space-x-2 font-roboto">
+            <p class="text-xl text-primary font-semibold">Rs. 100</p>
+            <p class="text- text-gray-400 line-through">Rs.200</p>
           </div>
-        </div>
-        <!-- feature 2 -->
-        <div class="border border-primary rounded-sm px-3 py-3 flex justify-center items-center gap-5">
-          <img src="" alt="" class="w-12 h-12 object-contain">
-          <div>
-            <h4 class="font-medium capitalize text-lg">Money Returns</h4>
-            <p class="text-gray-500 text-sm">Under 30 days</p>
+          <div class="flex items-center">
+            <div class="flex gap-1 text-sm text-yellow-400">
+              <span><i class="fa fa-star"></i></span>
+              <span><i class="fa fa-star"></i></span>
+              <span><i class="fa fa-star"></i></span>
+              <span><i class="fa fa-star"></i></span>
+              <span><i class="fa fa-star"></i></span>
+            </div>
           </div>
+          <a href="" class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add to cart</a>
         </div>
-        <!-- feature 3 -->
-        <div class="border border-primary rounded-sm px-3 py-3 flex justify-center items-center gap-5">
-          <img src="" alt="" class="w-12 h-12 object-contain">
-          <div>
-            <h4 class="font-medium capitalize text-lg">Customer support</h4>
-            <p class="text-gray-500 text-sm">All 7 days of the week</p>
-          </div>
-
-        </div>
+      </div>
     </div>
-    </div>
-
+  </div>
 
   <!-- HOME SCREEN -->
   <!-- <div id="my-home">
