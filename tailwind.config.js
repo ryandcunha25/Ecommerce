@@ -18,13 +18,14 @@ module.exports = {
         roboto: "'Roboto', sans-serif",
       },
       colors:{
-        primary: "#FD3D57"
+        primary: "#FD3D57",
+        grey : "#D3D3D3"
       },
       backgroundImage: {
         'test-img': "url('../public/images/jordan_homescreen.webp')",
       }
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
 
