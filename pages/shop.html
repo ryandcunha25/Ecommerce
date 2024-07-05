@@ -55,7 +55,7 @@
 
                 <!-- account -->
                 <div class="flex items-center space-x-4">
-                    <a href="#" class="text-center text-gray-700 hover:text-primary transition relative">
+                    <a href="account.html" class="text-center text-gray-700 hover:text-primary transition relative">
                         <div class="text-2xl">
                             <i class="fa fa-user"></i>
                         </div>
@@ -104,12 +104,12 @@
             <!-- LINKS FOR NAVBAR -->
             <div class="flex items-center justify-between flex-grow pl-12">
                 <div class="flex items-center space-x-6 capitalize">
-                    <a href="" class="text-gray-200 hover:text-white transition">Home</a>
-                    <a href="" class="text-gray-200 hover:text-white transition">Shop</a>
+                    <a href="index.html" class="text-gray-200 hover:text-white transition">Home</a>
+                    <a href="shop.html" class="text-gray-200 hover:text-white transition">Shop</a>
                     <a href="" class="text-gray-200 hover:text-white transition">About</a>
                     <a href="" class="text-gray-200 hover:text-white transition">Contact us</a>
                 </div>
-                <a href="" class="text-gray-200 hover:text-white transition">Login/Register</a>
+                <a href="login.html" class="text-gray-200 hover:text-white transition">Login/Register</a>
 
             </div>
     </nav> <!--Navbar end-->
@@ -129,7 +129,7 @@
     <div class="container w-full gap-6 pt-4 pb-16 flex">
 
         <!-- sidebar -->
-        <div class="w-6 bg-white px-12 pt-4 pb-6 shadow rounded overflow-hidden sticky">
+        <div class="w-fit max-h-fit bg-white px-2 pt-4 pb-6 shadow rounded overflow-hidden">
             <div class="divide-y divide-gray-200 space-y-5 px-6">
                 <!-- category filter -->
                 <div>
@@ -199,7 +199,7 @@
 
 
         <!-- product -->
-        <div class="w-24">
+        <div class="col-span-3">
             <!-- sorting -->
             <div class="flex items-center mb-4">
                 <select
@@ -262,9 +262,51 @@
                                 <span><i class="fa fa-star"></i></span>
                             </div>
                         </div>
-                        <a href=""
-                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add
-                            to cart</a>
+                        <a href="view.html"
+                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">View Product</a>
+                    </div>
+                </div>
+                
+                <!-- product-1 -->
+                <div class="bg-white shadow rounded overflow-hidden">
+                    <!-- image -->
+                    <div class="relative group">
+                        <img src="jordan2.jpeg" alt="" class="w-full">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
+                            <a href=""
+                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
+                                <i class="fa fa-search"></i>
+                            </a>
+                            <a href=""
+                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
+                                <i class="fa fa-heart"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- content -->
+                    <div class="pt-4 pb-3 px-4">
+                        <a href="#">
+                            <h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
+                                content
+                            </h4>
+                        </a>
+                        <div class="flex items-baseline mb-1 space-x-2 font-roboto">
+                            <p class="text-xl text-primary font-semibold">Rs. 100</p>
+                            <p class="text- text-gray-400 line-through">Rs.200</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex gap-1 text-sm text-yellow-400">
+                                <span><i class="fa fa-star"></i></span>
+                                <span><i class="fa fa-star"></i></span>
+                                <span><i class="fa fa-star"></i></span>
+                                <span><i class="fa fa-star"></i></span>
+                                <span><i class="fa fa-star"></i></span>
+                            </div>
+                        </div>
+                        <a href="view.html"
+                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">View Product</a>
                     </div>
                 </div>
                 <!-- product-1 -->
@@ -305,11 +347,11 @@
                                 <span><i class="fa fa-star"></i></span>
                             </div>
                         </div>
-                        <a href=""
-                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add
-                            to cart</a>
+                        <a href="view.html"
+                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">View Product</a>
                     </div>
                 </div>
+
                 <!-- product-1 -->
                 <div class="bg-white shadow rounded overflow-hidden">
                     <!-- image -->
@@ -348,11 +390,11 @@
                                 <span><i class="fa fa-star"></i></span>
                             </div>
                         </div>
-                        <a href=""
-                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add
-                            to cart</a>
+                        <a href="view.html"
+                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">View Product</a>
                     </div>
                 </div>
+
                 <!-- product-1 -->
                 <div class="bg-white shadow rounded overflow-hidden">
                     <!-- image -->
@@ -391,52 +433,15 @@
                                 <span><i class="fa fa-star"></i></span>
                             </div>
                         </div>
-                        <a href=""
-                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add
-                            to cart</a>
+                        <a href="view.html"
+                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">View Product</a>
                     </div>
                 </div>
-                <!-- product-1 -->
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <!-- image -->
-                    <div class="relative group">
-                        <img src="jordan2.jpeg" alt="" class="w-full">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                            <a href=""
-                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                <i class="fa fa-search"></i>
-                            </a>
-                            <a href="" class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                <i class="fa fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
 
-                    <!-- content -->
-                    <div class="pt-4 pb-3 px-4">
-                        <a href="#">
-                            <h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                                content
-                            </h4>
-                        </a>
-                        <div class="flex items-baseline mb-1 space-x-2 font-roboto">
-                            <p class="text-xl text-primary font-semibold">Rs. 100</p>
-                            <p class="text- text-gray-400 line-through">Rs.200</p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="flex gap-1 text-sm text-yellow-400">
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                            </div>
-                        </div>
-                        <a href=""
-                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Add
-                            to cart</a>
-                    </div>
-                </div>
+              
+
+
+
             </div>
 
 
@@ -449,12 +454,11 @@
 
     </div>
 
-
-    <footer class="bg-grey pt-16 border-t border-gray-100 text-center ">
-        <div class="copyright">Copyright &#169; 2024 [website Name] made by RYAN</div>
+    <footer class="bg-grey pt-10 border-t border-gray-100 text-center ">
+        <div class="copyright">Copyright &#169; 2024 [website Name] <br>Developed by <b>RYAN DCUNHA</b></div>
         <div class="social ">
             <!-- classes below for the social media icons have been named according to source, w3schools -->
-            <a href="#" id="facebook" class="fa fa-facebook"></a>
+            <a href="#" id="facebook" class="fa fa-facebook "></a>
             <a href="https://www.instagram.com/ryan__dcunha?igsh=MWh3amR3d2pqY29sdg==" id="instagram"
                 class="fa fa-instagram"></a>
             <a href="#" id="twitter" class="fa fa-twitter"></a>
