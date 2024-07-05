@@ -1261,6 +1261,11 @@ h1,
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-40 {
   --tw-bg-opacity: 0.4;
 }
@@ -1301,6 +1306,10 @@ h1,
 
 .p-1 {
   padding: 0.25rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .px-10 {
@@ -1423,6 +1432,14 @@ h1,
 
 .pb-8 {
   padding-bottom: 2rem;
+}
+
+.pb-7 {
+  padding-bottom: 1.75rem;
+}
+
+.pt-5 {
+  padding-top: 1.25rem;
 }
 
 .text-center {
