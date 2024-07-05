@@ -104,9 +104,9 @@
             <!-- LINKS FOR NAVBAR -->
             <div class="flex items-center justify-between flex-grow pl-12">
                 <div class="flex items-center space-x-6 capitalize">
-                    <a href="" class="text-gray-200 hover:text-white transition">Home</a>
-                    <a href="" class="text-gray-200 hover:text-white transition">Shop</a>
-                    <a href="" class="text-gray-200 hover:text-white transition">About</a>
+                    <a href="index.html" class="text-gray-200 hover:text-white transition">Home</a>
+                    <a href="shop.html" class="text-gray-200 hover:text-white transition">Shop</a>
+                    <a href="view.html" class="text-gray-200 hover:text-white transition">About</a>
                     <a href="" class="text-gray-200 hover:text-white transition">Contact us</a>
                 </div>
                 <a href="" class="text-gray-200 hover:text-white transition">Login/Register</a>
@@ -124,3 +124,58 @@
         </span>
         <p class="text-gray-600 font-medium">Shop </p>
     </div>
+
+    <!-- PRODUCT VIEW -->
+    <div class="container grid grid-cols-2 gap-8 ">
+        <!-- image -->
+        <div>
+            <img src="jordanview.jpg" alt="Product Image" class="rounded-2xl">
+        </div>
+
+        <!-- content -->
+        <div class="px-5 ">
+            <h2 class="text-3xl font-medium uppercase mb-2">PRODUCT NAME</h2>
+            <div>
+                <p class="text-gray-800 font-semibold space-x-2">
+                    <span>Availability: </span>
+                    <span class="text-green-600">[In Stock]</span>
+                </p>
+                <p class="space-x-2">
+                    <span class="text-gray-800 font-semibold">Brand: </span>
+                    <span class="text-gray-800">[Brand Name]</span>
+                </p>
+                <p class="space-x-2">
+                    <span class="text-gray-800 font-semibold">Category: </span>
+                    <span class="text-gray-800">[Category Name]</span>
+                </p>
+                <p class="space-x-2">
+                    <span class="text-gray-800 font-semibold">Brand: </span>
+                    <span class="text-gray-800">[Brand Name]</span>
+                </p>
+
+            </div>
+            <div class="flex items-baseline mb-1 space-y-2 font-roboto mt-43">
+                <p class="text-xl text-primary font-semibold">Rs. 100</p>
+                <p class="text-gray-400 line-through">Rs. 55</p>
+            </div>
+            <!-- quantity -->
+            <div class="quantity-wrapper space-y-2">
+                <input type="number" id="quantity" value="1" min="1" class="quantity-input">
+              </div>
+
+              <div class="flex gap-3 border-b border-gray-300 pb-5 mt-6">
+                <a href="view.html"
+                            class="bg-primary border border-primary  text-white px-8 py-2 font-medium uppercase flex items-center gap-2 rounded-b hover:bg-transparent hover:text-primary transition">
+                            <i class="fa fa-shopping-bag"></i>Add
+                            to cart</a>
+                <a href=""
+                class="bg-primary border border-primary  text-white px-8 py-2 font-medium uppercase gap-2 flex items-center rounded-b hover:bg-transparent hover:text-primary transition">
+                <i class="fa fa-heart"></i>
+                Wishlist</a>
+              </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
