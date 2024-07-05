@@ -2,15 +2,25 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@layer base{
-    body{
-        @apply font-poppins
-    }
-    h1,h2,h3,h4,h5,h6{
-        @apply font-roboto
-    }
-    .my-banner{
-        background: (0,0,0,0.288)
-    }
-    /*   */
+@layer base {
+  body {
+    @apply font-poppins;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-roboto;
+  }
+  .my-banner {
+    background: (0, 0, 0, 0.288);
+  }
+  .quantity-input {
+    width: fit-content; /* Reduce width to fit content */
+    padding: 5px; /* Add some padding for better usability */
+    border: 1px solid #ccc; /* Add a border for styling (optional) */
+  }
+  /*   */
 }
