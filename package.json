@@ -1,12 +1,17 @@
 {
   "scripts": {
-    "build-css": "npx tailwindcss -i ./src/css/style.css -o ./pages/ecommerce.css --watch"
+    "build-css": "npx tailwindcss -i ./src/css/style.css -o ./pages/ecommerce.css --watch",
+    "dev": "nodemon ./app.js"
   },
   "devDependencies": {
+    "nodemon": "^3.1.4",
     "tailwindcss": "^3.4.4"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.4.5"
   }
 }
