@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build-css": "npx tailwindcss -i ./src/css/style.css -o ./pages/ecommerce.css --watch",
+    "build-css": "npx tailwindcss -i ./src/style.css -o ./pages/ecommerce.css --watch",
     "dev": "nodemon ./app.js"
   },
   "devDependencies": {
@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
+    "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "mongodb": "^6.8.0",
     "mongoose": "^8.4.5"
