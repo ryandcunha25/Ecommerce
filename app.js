@@ -1,6 +1,3 @@
-// app.js (or index.js)
-
-// Import required modules
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -15,6 +12,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'pages')));
+app.use('/src', express.static(path.join(__dirname, 'src')));
 
 // Middleware for parsing JSON bodies
 app.use(bodyParser.json());
@@ -32,7 +30,6 @@ connection.on('connected', () => {
 connection.on('error', (e) => {
     console.error('MongoDB connection error:', e);
 });
-
 
 // Define a route to create a new user
 app.post('/signup', async (req, res) => {
