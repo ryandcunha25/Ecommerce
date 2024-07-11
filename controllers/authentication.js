@@ -1,0 +1,85 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
+const bodyParser = require('body-parser'); // Optional for parsing request bodies
+const authenticationRouter = require('./authentication'); // Require the authentication router
+
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
+
+
+// Using the authentication router for login and signup routes
+app.use('/', authenticationRouter);
+const bcrypt = require('bcrypt');
+const User = require('./models/userModel.js'); // Adjust path as necessary
+
+const router = express.Router();
+
+// Define a route to create a new user
+router.post('/signup', async (req, res) => {
+    const { name, email, password } = req.body;
+
+    try {
+        // Hashing the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Creating a new user
+        const newUser = new User({
+            name,
+            email,
+            password: hashedPassword
+        });
+
+        // Saving the user in the database
+        const savedUser = await newUser.save();
+        console.log("User signed up successfully\n" + savedUser);
+        
+        // Redirecting to the login page after successful signup
+        res.redirect('/login.html'); 
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Failed to save user' });
+    }
+});
+
+// Define a route for user login
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        // Find the user by email
+        const user = await User.findOne({ email });
+        if (!user) {
+            console.log("Invalid email or password");
+            return res.status(400).json({ error: 'Invalid email or password' });
+        }
+
+        // Compare the provided password with the stored hashed password
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            console.log("Invalid email or password");
+            return res.status(400).json({ error: 'Invalid email or password' });
+        }
+
+        // If the password matches, login is successful
+        console.log("User logged in successfully\n" + user);
+
+        // Redirecting to the home page after successful login
+        res.redirect('/index.html'); 
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Login failed' });
+    }
+});
+
+module.exports = router;
+
+
+// const port = process.env.PORT || 3000;
+// app.listen(port, () => {
+//     console.log(`Server is running on port ${port}`);
+// });
