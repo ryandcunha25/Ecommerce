@@ -39,20 +39,23 @@ app.post('/signup', async (req, res) => {
     const { name, email, password } = req.body;
 
     try {
-        // Hash the password
+        // Hashing the password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Create a new user instance
+        // Creating a new user
         const newUser = new User({
             name,
             email,
             password: hashedPassword
         });
 
-        // Save the user to the database
+        // Saving the user in the database
         const savedUser = await newUser.save();
         console.log("User signed up successfully\n" + savedUser);
-        res.status(201).json(savedUser);
+        // res.status(201).json(savedUser);
+        
+        // Redirecting to the login page after successful signup
+        res.redirect('/login.html'); 
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Failed to save user' });
@@ -81,7 +84,10 @@ app.post('/login', async (req, res) => {
 
         // If the password matches, login is successful
         console.log("User logged in successfully\n" + user);
-        res.status(200).json(user);
+
+        // Redirecting to the home page after successful signup
+        res.redirect('/index.html'); 
+        // res.status(200).json(user);
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Login failed' });
