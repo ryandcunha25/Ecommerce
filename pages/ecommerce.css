@@ -896,10 +896,6 @@ h1,
   margin-bottom: 1.5rem;
 }
 
-.me-2 {
-  margin-inline-end: 0.5rem;
-}
-
 .me-3 {
   margin-inline-end: 0.75rem;
 }
@@ -1343,10 +1339,6 @@ h1,
 
 .p-4 {
   padding: 1rem;
-}
-
-.p-5 {
-  padding: 1.25rem;
 }
 
 .px-10 {
