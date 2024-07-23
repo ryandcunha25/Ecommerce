@@ -65,14 +65,14 @@ app.post('/login', async (req, res) => {
     console.log(req.body)
 
     try {
-        // Find the user by email
+        // Finding the user by email
         const user = await User.findOne({ email });
         if (!user) {
             console.log("Invalid email or password")
             return res.status(400).json({ error: 'Invalid email or password' });
         }
 
-        // Compare the provided password with the stored hashed password
+        // Comparing the provided password with the stored hashed password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             console.log("Invalid email or password")
