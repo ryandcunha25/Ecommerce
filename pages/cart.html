@@ -83,6 +83,37 @@
                 </div>
               </div>
 
+              <div class="card rounded-3 mb-4">
+                <div class="card-body p-4">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-md-2 col-lg-2 col-xl-2">
+                            <img id="cartImage" class="img-fluid rounded-3" alt="Product Image">
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                            <p class="lead fw-normal mb-2">Basic T-shirt</p>
+                            <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <input id="form1" min="0" name="quantity" value="2" type="number" class="form-control form-control-sm" />
+                            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                            <h5 class="mb-0" id="cartPrice"></h5>
+                        </div>
+                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                            <a href="#!" class="text-danger"><i class="fa fa-trash fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
               <div class="card rounded-3 mb-4 ">
                 <div class="card-body p-4">
                   <div class="row d-flex justify-content-between align-items-center">
@@ -119,43 +150,7 @@
                 </div>
               </div>
       
-              <div class="card rounded-3 mb-4 ">
-                <div class="card-body p-4">
-                  <div class="row d-flex justify-content-between align-items-center">
-                    <div class="col-md-2 col-lg-2 col-xl-2">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                        class="img-fluid rounded-3" alt="Cotton T-shirt">
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-3">
-                      <p class="lead fw-normal mb-2">Basic T-shirt</p>
-                      <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                        <i class="fa fa-minus"></i>
-                      </button>
-      
-                      <input id="form1" min="0" name="quantity" value="2" type="number"
-                        class="form-control form-control-sm" />
-      
-                      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                        <i class="fa fa-plus"></i>
-                      </button>
-                    </div>
-                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                      <h5 class="mb-0">$499.00</h5>
-                    </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-danger"><i class="fa fa-trash fa-lg"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-      
-              <div class="card mb-4">
+              <!-- <div class="card mb-4">
                 <div class="card-body p-4 d-flex flex-row">
                   <div data-mdb-input-init class="form-outline flex-fill">
                     <input type="text" id="form1" class="form-control form-control-lg" />
@@ -164,7 +159,7 @@
                   <button  type="button"  class="btn btn-outline-warning btn-lg ms-3 h-fit">Apply</button>
                 </div>
               </div>
-      
+       -->
               <div class="card">
                 <div class="card-body flex justify-evenly">
                   <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg"><a href="shop.html" class= "text-black no-underline px-8 rounded-r-md hover:bg-transparent hover:text-primary transition">Continue Shopping</a></button>
@@ -178,6 +173,21 @@
         </div>
       </section>
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Retrieve the product details from localStorage
+      const cartImageSrc = localStorage.getItem('cartImage');
+      const cartPrice = localStorage.getItem('cartPrice');
+  
+      // Display the product details
+      if (cartImageSrc && cartPrice) {
+          document.getElementById('cartImage').src = cartImageSrc;
+          document.getElementById('cartPrice').textContent = cartPrice;
+      } else {
+          alert('No items in cart.');
+      }
+  });
+  </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
