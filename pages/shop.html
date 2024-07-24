@@ -70,30 +70,30 @@
     <!-- NAVIGATION BAR -->
     <nav class="bg-gray-800">
         <div class="container flex">
-          <div class="px-8 py-4 bg-primary flex items-center cursor-pointer">
-            <span class="text-white">
-              <i class="fa fa-bars"></i>
-            </span>
-    
-            <span class="capitalize ml-2 text-white">All categories</span>
-          </div>
-    
-          <!-- LINKS FOR NAVBAR -->
-          <div class="flex items-center justify-between flex-grow pl-12">
-            <div class="flex items-center space-x-6 capitalize">
-              <a href="index.html" class="text-gray-200 hover:text-white transition">Home</a>
-              <a href="shop.html" class="text-gray-200 hover:text-white transition">Shop</a>
-              <a href="" class="text-gray-200 hover:text-white transition">About</a>
-              <a href="" class="text-gray-200 hover:text-white transition">Contact us</a>
+            <div class="px-8 py-4 bg-primary flex items-center cursor-pointer">
+                <span class="text-white">
+                    <i class="fa fa-bars"></i>
+                </span>
+
+                <span class="capitalize ml-2 text-white">All categories</span>
             </div>
-            <a href="login.html" class="text-gray-200 hover:text-white transition">Login/Register</a>
-    
-          </div>
+
+            <!-- LINKS FOR NAVBAR -->
+            <div class="flex items-center justify-between flex-grow pl-12">
+                <div class="flex items-center space-x-6 capitalize">
+                    <a href="index.html" class="text-gray-200 hover:text-white transition">Home</a>
+                    <a href="shop.html" class="text-gray-200 hover:text-white transition">Shop</a>
+                    <a href="" class="text-gray-200 hover:text-white transition">About</a>
+                    <a href="" class="text-gray-200 hover:text-white transition">Contact us</a>
+                </div>
+                <a href="login.html" class="text-gray-200 hover:text-white transition">Login/Register</a>
+
+            </div>
         </div>
-      </nav> <!--Navbar end-->
+    </nav> <!--Navbar end-->
 
     <!-- BREADCRUMBS -->
-    <div class="container py-4 flex items-center gap-3">
+    <div class="container py-1 flex items-center gap-3">
         <a href="index.html" class="text-primary text-base">
             <i class="fa fa-home"></i>
         </a>
@@ -103,11 +103,12 @@
         <p class="text-gray-600 font-medium">Shop </p>
     </div>
 
+
     <!-- SHOP WRAPPER -->
     <div class="container w-full gap-6 pt-4 pb-16 flex">
 
         <!-- sidebar -->
-        <div class="w-fit h-fit bg-white px-2 pt-4 pb-6 shadow rounded overflow-hidden">
+        <div class="h-fit bg-white px-2 pt-4 pb-6 shadow rounded overflow-hidden" style="width: fit-content;">
             <div class="divide-y divide-gray-200 space-y-5 px-6">
                 <!-- category filter -->
                 <div>
@@ -177,243 +178,26 @@
 
 
         <!-- product -->
-        <div class="w-fit">
-            <!-- sorting -->
-            <div class="flex items-center mb-4">
-                <select
-                    class="w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary">
-                    <option value="">Default sorting</option>
-                    <option value="">Price-low-high</option>
-                    <option value="">Price high-low</option>
-                    <option value="">Latest product</option>
-                </select>
-                <div class="flex gap-2 ml-auto">
-                    <div
-                        class="border border-primary w-10 h-9 flex items-center justify-center text-white bg-primary rounded cursor-pointer">
-                        <i class="fa fa-th"></i>
-                    </div>
-                    <div
-                        class="border border-primary w-10 h-9 flex items-center justify-center text-white bg-primary rounded cursor-pointer">
-                        <i class="fa fa-list"></i>
-                    </div>
-                </div>
-
+        <div class="flex flex-col w-full">
+            <div class="cart">
+                <i class="fa fa-shopping-cart "></i>
+                <p id="count">0</p>
             </div>
-            <!-- actual prodcuts -->
-            <div class="grid grid-cols-3 gap-6">
-
-                <!-- product-1 -->
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <!-- image -->
-                    <div class="relative group">
-                        <img src="../src/images/nike1.png" alt="" class="w-full">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                        
-                            <a href=""
-                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                <i class="fa fa-heart"></i>
-                            </a>
-                        </div>
+            <div class="container">
+                <div id="root"></div>
+                <div class="sidebar">
+                    <div class="head">
+                        <p>My Cart</p>
                     </div>
-
-                    <!-- content -->
-                    <div class="pt-4 pb-3 px-4">
-                        <a href="#">
-                            <h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                                content
-                            </h4>
-                        </a>
-                        <div class="flex items-baseline mb-1 space-x-2 font-roboto">
-                            <p class="text-xl text-primary font-semibold">Rs. 100</p>
-                            <p class="text- text-gray-400 line-through">Rs.200</p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="flex gap-1 text-sm text-yellow-400">
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                            </div>
-                        </div>
-                        <a href="view.html"
-                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition" onclick="view('../src/images/nike1.png')">View Product</a>
+                    <div id="cartItem">Your cart is empty</div>
+                    <div class="foot">
+                        <h3>Total</h3>
+                        <h2 id="total">$ 0.00</h2>
                     </div>
                 </div>
-                
-                <!-- product-2 -->
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <!-- image -->
-                    <div class="relative group">
-                        <img src="../src/images/nike2.png" alt="" class="w-full">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                        
-                            <a href=""
-                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                <i class="fa fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- content -->
-                    <div class="pt-4 pb-3 px-4">
-                        <a href="#">
-                            <h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                                content
-                            </h4>
-                        </a>
-                        <div class="flex items-baseline mb-1 space-x-2 font-roboto">
-                            <p class="text-xl text-primary font-semibold">Rs. 100</p>
-                            <p class="text- text-gray-400 line-through">Rs.200</p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="flex gap-1 text-sm text-yellow-400">
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                            </div>
-                        </div>
-                        <a href="view.html"
-                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition" onclick="view('../src/images/nike2.png')">View Product</a>
-                    </div>
-                </div>
-
-                <!-- product-3 -->
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <!-- image -->
-                    <div class="relative group">
-                        <img src="../src/images/nike1.png" alt="" class="w-full">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                            <a href=""
-                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                <i class="fa fa-search"></i>
-                            </a>
-                            <a href=""
-                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                <i class="fa fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- content -->
-                    <div class="pt-4 pb-3 px-4">
-                        <a href="#">
-                            <h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                                content
-                            </h4>
-                        </a>
-                        <div class="flex items-baseline mb-1 space-x-2 font-roboto">
-                            <p class="text-xl text-primary font-semibold">Rs. 100</p>
-                            <p class="text- text-gray-400 line-through">Rs.200</p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="flex gap-1 text-sm text-yellow-400">
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                            </div>
-                        </div>
-                        <a href="view.html"
-                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">View Product</a>
-                    </div>
-                </div>
-                
-                <!-- product-5 -->
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <!-- image -->
-                    <div class="relative group">
-                        <img src="../src/images/nike2.png" alt="" class="w-full">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                            <a href=""
-                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                <i class="fa fa-search"></i>
-                            </a>
-                            <a href=""
-                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                <i class="fa fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- content -->
-                    <div class="pt-4 pb-3 px-4">
-                        <a href="#">
-                            <h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                                content
-                            </h4>
-                        </a>
-                        <div class="flex items-baseline mb-1 space-x-2 font-roboto">
-                            <p class="text-xl text-primary font-semibold">Rs. 100</p>
-                            <p class="text- text-gray-400 line-through">Rs.200</p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="flex gap-1 text-sm text-yellow-400">
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                            </div>
-                        </div>
-                        <a href="view.html"
-                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">View Product</a>
-                    </div>
-                </div>
-                
-                <!-- product-4 -->
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <!-- image -->
-                    <div class="relative group">
-                        <img src="../src/images/nike2.png" alt="" class="w-full">
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                            <a href=""
-                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                <i class="fa fa-search"></i>
-                            </a>
-                            <a href=""
-                                class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                <i class="fa fa-heart"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- content -->
-                    <div class="pt-4 pb-3 px-4">
-                        <a href="#">
-                            <h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                                content
-                            </h4>
-                        </a>
-                        <div class="flex items-baseline mb-1 space-x-2 font-roboto">
-                            <p class="text-xl text-primary font-semibold">Rs. 100</p>
-                            <p class="text- text-gray-400 line-through">Rs.200</p>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="flex gap-1 text-sm text-yellow-400">
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                                <span><i class="fa fa-star"></i></span>
-                            </div>
-                        </div>
-                        <a href="view.html"
-                            class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">View Product</a>
-                    </div>
-                </div>
-
-
             </div>
         </div>
+
     </div>
 
     <footer class="bg-grey pt-10 border-t border-gray-100 text-center ">
@@ -430,15 +214,6 @@
 
 </body>
 
-
-<script>
-    function view(imageSrc) {
-        // Save the image source in localStorage
-        localStorage.setItem('imageSrc', imageSrc);
-
-        // Redirect to the new page
-        window.location.href = 'view.html';
-    }
-</script>
+<script src="js/shop.js"></script>
 
 </html>
