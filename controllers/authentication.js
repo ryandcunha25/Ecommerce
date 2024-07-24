@@ -1,21 +1,6 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
-const bodyParser = require('body-parser'); // Optional for parsing request bodies
-const authenticationRouter = require('./authentication'); // Require the authentication router
-
-const app = express();
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-app.use(bodyParser.json());
-
-
-// Using the authentication router for login and signup routes
-app.use('/', authenticationRouter);
 const bcrypt = require('bcrypt');
-const User = require('./models/userModel.js'); // Adjust path as necessary
+const User = require('../models/userModel.js'); // Assuming your User model is defined in a separate file
 
 const router = express.Router();
 
@@ -37,6 +22,7 @@ router.post('/signup', async (req, res) => {
         // Saving the user in the database
         const savedUser = await newUser.save();
         console.log("User signed up successfully\n" + savedUser);
+        // res.status(201).json(savedUser);
         
         // Redirecting to the login page after successful signup
         res.redirect('/login.html'); 
@@ -49,27 +35,29 @@ router.post('/signup', async (req, res) => {
 // Define a route for user login
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
+    console.log(req.body)
 
     try {
-        // Find the user by email
+        // Finding the user by email
         const user = await User.findOne({ email });
         if (!user) {
-            console.log("Invalid email or password");
+            console.log("Invalid email or password")
             return res.status(400).json({ error: 'Invalid email or password' });
         }
 
-        // Compare the provided password with the stored hashed password
+        // Comparing the provided password with the stored hashed password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            console.log("Invalid email or password");
+            console.log("Invalid email or password")
             return res.status(400).json({ error: 'Invalid email or password' });
         }
 
         // If the password matches, login is successful
         console.log("User logged in successfully\n" + user);
 
-        // Redirecting to the home page after successful login
+        // Redirecting to the home page after successful signup
         res.redirect('/index.html'); 
+        // res.status(200).json(user);
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Login failed' });
@@ -77,9 +65,3 @@ router.post('/login', async (req, res) => {
 });
 
 module.exports = router;
-
-
-// const port = process.env.PORT || 3000;
-// app.listen(port, () => {
-//     console.log(`Server is running on port ${port}`);
-// });
