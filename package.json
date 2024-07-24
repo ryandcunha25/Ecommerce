@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build-css": "npx tailwindcss -i ./src/style.css -o ./pages/css/ecommerce.css --watch",
+    "build-css": "npx tailwindcss -i ./src/style.css -o ./pages/ecommerce.css --watch",
     "dev": "nodemon ./app.js"
   },
   "devDependencies": {
