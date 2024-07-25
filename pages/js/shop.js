@@ -1,3 +1,26 @@
+        // function fetchProducts() {
+        //     fetch('/products')
+        //         .then(response => response.json())
+        //         .then(products => {
+        //             const productList = document.getElementById('product-list');
+        //             productList.innerHTML = ''; // Clear the list before adding products
+        //             products.forEach(product => {
+        //                 const li = document.createElement('li');
+        //                 li.innerHTML = `
+        //                     <strong>${product.name}</strong> - ${product.price} - ${product.brand}<br>
+        //                     <img src="${product.image}" alt="${product.name}" style="width: 100px; height: auto;">
+        //                 `;
+        //                 productList.appendChild(li);
+        //             });
+        //         });
+        // }
+
+        // // Fetch initial product list
+        // fetchProducts();
+
+        // // Polling to fetch new products every 5 seconds
+        // setInterval(fetchProducts, 5000);
+
 const product = [
    {
        id: 0,
