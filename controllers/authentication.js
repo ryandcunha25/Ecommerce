@@ -35,28 +35,33 @@ router.post('/signup', async (req, res) => {
 // Define a route for user login
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    console.log(req.body)
+    console.log(req.body);
 
     try {
         // Finding the user by email
         const user = await User.findOne({ email });
         if (!user) {
-            console.log("Invalid email or password")
+            console.log("Invalid email or password");
             return res.status(400).json({ error: 'Invalid email or password' });
         }
 
         // Comparing the provided password with the stored hashed password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            console.log("Invalid email or password")
+            console.log("Invalid email or password");
             return res.status(400).json({ error: 'Invalid email or password' });
         }
 
         // If the password matches, login is successful
         console.log("User logged in successfully\n" + user);
 
-        // Redirecting to the home page after successful signup
-        res.redirect('/index.html'); 
+        // Redirecting users with the email containing @admin123.com to the admin panel
+        if (email.endsWith('@admin123.com')) {
+            return res.redirect('/admin_panel.html');
+        }
+
+        // Redirecting to the home page after successful login
+        res.redirect('/index.html');
         // res.status(200).json(user);
     } catch (error) {
         console.log(error);
