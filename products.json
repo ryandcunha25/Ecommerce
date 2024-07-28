@@ -26,7 +26,13 @@
     {
         "id": 4,
         "image": "../src/images/scenary.jpg",
-        "title": "Head Phones",
+        "title": "Head Phwones",
+        "price": 170
+    },
+    {
+        "id": 5,
+        "image": "../src/images/scenary.jpg",
+        "title": "Head Phwones",
         "price": 170
     }
 ]

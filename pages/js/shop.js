@@ -1,107 +1,137 @@
-        // function fetchProducts() {
-        //     fetch('/products')
-        //         .then(response => response.json())
-        //         .then(products => {
-        //             const productList = document.getElementById('product-list');
-        //             productList.innerHTML = ''; // Clear the list before adding products
-        //             products.forEach(product => {
-        //                 const li = document.createElement('li');
-        //                 li.innerHTML = `
-        //                     <strong>${product.name}</strong> - ${product.price} - ${product.brand}<br>
-        //                     <img src="${product.image}" alt="${product.name}" style="width: 100px; height: auto;">
-        //                 `;
-        //                 productList.appendChild(li);
-        //             });
-        //         });
-        // }
+document.addEventListener('DOMContentLoaded', async () => {
+    // Fetch products data
+    const response = await fetch('/products.json');
+    const product = await response.json();
 
-        // // Fetch initial product list
-        // fetchProducts();
+    const categories = [...new Set(product.map((item) => item))];
+    let i = 0;
 
-        // // Polling to fetch new products every 5 seconds
-        // setInterval(fetchProducts, 5000);
+    document.getElementById('root').innerHTML = categories.map((item) => {
+        var { image, title, price } = item;
+        return (
+            `<div class='box'>
+                <div class='img-box'>
+                    <img class='images' src=${image} style="width: fit-content"></img>
+                </div>
+                <div class='bottom'>
+                    <p>${title}</p>
+                    <h2>&#8377 ${price}.00</h2>` +
+                    "<button onclick='addtocart(" + (i++) + ")'>Add to cart</button>" +
+                `</div>
+            </div>`
+        );
+    }).join('');
 
-const product = [
-   {
-       id: 0,
-       image: '../src/images/nike1.png',
-       title: 'Z Flip Foldable Mobile',
-       price: 120,
-   },
-   {
-       id: 1,
-       image: '../src/images/nike2.png',
-       title: 'Air Pods Pro',
-       price: 60,
-   },
-   {
-       id: 2,
-       image: '../src/images/jordan_home.jpeg',
-       title: '250D DSLR Camera',
-       price: 230,
-   },
-   {
-       id: 3,
-       image: '../src/images/jordan_homescreen.webp',
-       title: 'Head Phones',
-       price: 100,
-   }
-];
-const categories = [...new Set(product.map((item)=>
-   {return item}))]
-   let i=0;
-document.getElementById('root').innerHTML = categories.map((item)=>
-{
-   var {image, title, price} = item;
-   return(
-       `<div class='box'>
-           <div class='img-box'>
-               <img class='images' src=${image} style="width: fit-content"></img>
-           </div>
-       <div class='bottom'>
-       <p>${title}</p>
-       <h2>$ ${price}.00</h2>`+
-       "<button onclick='addtocart("+(i++)+")'>Add to cart</button>"+
-       `</div>
-       </div>`
-   )
-}).join('')
+    var cart = [];
 
-var cart =[];
+    window.addtocart = function(a) {
+        cart.push({ ...categories[a] });
+        displaycart();
+    }
 
-function addtocart(a){
-   cart.push({...categories[a]});
-   displaycart();
-}
-function delElement(a){
-   cart.splice(a, 1);
-   displaycart();
-}
+    window.delElement = function(a) {
+        cart.splice(a, 1);
+        displaycart();
+    }
 
-function displaycart(){
-   let j = 0, total=0;
-   document.getElementById("count").innerHTML=cart.length;
-   if(cart.length==0){
-       document.getElementById('cartItem').innerHTML = "Your cart is empty";
-       document.getElementById("total").innerHTML = "$ "+0+".00";
-   }
-   else{
-       document.getElementById("cartItem").innerHTML = cart.map((items)=>
-       {
-           var {image, title, price} = items;
-           total=total+price;
-           document.getElementById("total").innerHTML = "$ "+total+".00";
-           return(
-               `<div class='cart-item'>
-               <div class='row-img'>
-                   <img class='rowimg' src=${image}>
-               </div>
-               <p style='font-size:12px;'>${title}</p>
-               <h2 style='font-size: 15px;'>$ ${price}.00</h2>`+
-               "<i class='fa fa-trash' onclick='delElement("+ (j++) +")'></i></div>"
-           );
-       }).join('');
-   }
+    function displaycart() {
+        let j = 0, total = 0;
+        document.getElementById("count").innerHTML = cart.length;
+        if (cart.length == 0) {
+            document.getElementById('cartItem').innerHTML = "Your cart is empty";
+            document.getElementById("total").innerHTML = "&#8377 " + 0 + ".00";
+        } else {
+            document.getElementById("cartItem").innerHTML = cart.map((items) => {
+                var { image, title, price } = items;
+                total = total + price;
+                document.getElementById("total").innerHTML = "&#8377 " + total + ".00";
+                return (
+                    `<div class='cart-item'>
+                        <div class='row-img'>
+                            <img class='rowimg' src=${image}>
+                        </div>
+                        <p style='font-size:12px;'>${title}</p>
+                        <h2 style='font-size: 15px;'>&#8377 ${price}.00</h2>` +
+                        "<i class='fa fa-trash' onclick='delElement(" + (j++) + ")'></i></div>"
+                );
+            }).join('');
+        }
+    }
 
-   
-}
+    
+    // PAYMENT ROUTE
+    document.getElementById('buyNow').addEventListener('click', async () => {
+        console.log('proceeding to payment...');
+        if (cart.length === 0) {
+            alert('Your cart is empty');
+            return;
+        }
+
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        console.log(total); // This will print the total value to the console
+
+        // Convert total to integer paise
+        const amountInPaise = Math.round(total * 100);
+        console.log(amountInPaise); // This will print the amount in paise to the console
+
+        const orderResponse = await fetch('/products/create-order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                amount: amountInPaise, // Razorpay expects the amount in paise
+                currency: 'INR',
+                receipt: `receipt_${Math.random().toString(36).substr(2, 9)}`
+            })
+        });
+
+        const order = await orderResponse.json();
+        console.log(order)
+
+        const options = {
+            key: 'rzp_test_8Yxkd0FgKI1EqR', // Enter the Key ID generated from the Dashboard
+            amount: order.amount,
+            currency: order.currency,
+            name: 'Your Company Name',
+            description: 'Test Transaction',
+            order_id: order.id,
+            handler: async function(response) {
+                const paymentData = {
+                    razorpay_order_id: response.razorpay_order_id,
+                    razorpay_payment_id: response.razorpay_payment_id,
+                    razorpay_signature: response.razorpay_signature
+                };
+
+                const verifyResponse = await fetch('/products/verify-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(paymentData)
+                });
+
+                const verificationResult = await verifyResponse.json();
+
+                if (verificationResult.status === 'success') {
+                    alert('Payment successful!');
+                    cart = [];
+                    displaycart();
+                } else {
+                    alert('Payment verification failed!');
+                }
+            },
+            prefill: {
+                name: 'Your Name',
+                email: 'your.email@example.com',
+                contact: '9999999999'
+            },
+            theme: {
+                color: '#F37254'
+            }
+        };
+
+        const paymentObject = new Razorpay(options);
+        paymentObject.open();
+    });
+});
