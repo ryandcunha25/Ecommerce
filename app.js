@@ -8,8 +8,10 @@ const bodyParser = require('body-parser'); // Optional for parsing request bodie
 // const methodOverride = require('method-override');
 
 // Connecting to Mongo DB
- require('./controllers/connection');
+require('./controllers/connection');
 
+// Importing payments
+require('dotenv').config(); 
 
 // Initialize Express app
 const app = express();
@@ -30,8 +32,13 @@ const authenticationRoutes = require('./controllers/authentication');
 app.use(authenticationRoutes);
 
 // // Importing products
-// const productRoutes = require('./controllers/product');
-// app.use(productRoutes);
+const productRoutes = require('./controllers/product');
+
+// Endpoint to serve products.json
+app.get('/products.json', (req, res) => {
+    res.sendFile(path.join(__dirname, 'products.json'));
+});
+app.use('/products', productRoutes);
 
 // // Setting up gridFS storage
 // let gfs;
@@ -42,7 +49,9 @@ app.use(authenticationRoutes);
 //   gfs.collection('uploads');
 // });
 
-// Importing payments
+// 
+// const dotenv = require('dotenv');
+// dotenv.config(); 
 // const paymentController = require('../controllers/paymentController');
 
 // payment_route.get('/', paymentController.renderProductPage);
