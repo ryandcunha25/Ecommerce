@@ -1,28 +1,32 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/product');
+const Product = require('../models/productsModel');
+const { createOrder, verifyPayment } = require('./razorpay');
 
-// Add a new product
-router.post('/products', async (req, res) => {
+// Route to add a product
+router.post('/add', async (req, res) => {
+    const { name, price, id, category, brand } = req.body;
+    const product = new Product({ name, price, id, category, brand });
     try {
-        const { name, price, brand, id, image } = req.body;
-        const newProduct = new Product({ name, price, brand, id, image });
-        await newProduct.save();
-        res.status(201).send(newProduct);
-        req.app.get('io').emit('newProduct', newProduct); // Notify clients of the new product
+        await product.save();
+        res.status(200).send('Product added successfully');
     } catch (error) {
-        res.status(400).send({ error: error.message });
+        res.status(500).send('Error adding product: ' + error.message);
     }
 });
 
-// Get all products
-router.get('/products', async (req, res) => {
+// Route to get all products
+router.get('/', async (req, res) => {
     try {
         const products = await Product.find();
-        res.status(200).send(products);
+        res.status(200).json(products);
     } catch (error) {
-        res.status(500).send({ error: error.message });
+        res.status(500).send('Error retrieving products: ' + error.message);
     }
 });
+
+// Razorpay routes
+router.post('/create-order', createOrder);
+router.post('/verify-payment', verifyPayment);
 
 module.exports = router;
