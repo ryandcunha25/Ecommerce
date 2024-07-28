@@ -11,10 +11,12 @@
     "@tailwindcss/forms": "^0.5.7",
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.5.1"
+    "mongoose": "^8.5.1",
+    "razorpay": "^2.9.4"
   },
   "name": "ecommerce",
   "version": "1.0.0",
